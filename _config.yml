@@ -1,0 +1,14 @@
+# Site settings
+title: João Fonseca
+email: joaopbf9@hotmail.com
+# The description of the site, used in the site's metadata.
+description: Personal portfolio and CV
+description: > Personal portfolio and CV
+baseurl: ""
+url: "joaofonseca" # the base hostname & protocol for your site
+
+twitter_username:
+github_username: joaofonseca9
+
+# Build settings
+markdown: kramdown
