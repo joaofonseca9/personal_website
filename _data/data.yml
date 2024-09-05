@@ -1,0 +1,41 @@
+experiences:
+  title: Experience
+  info:
+    - role: Product Owner
+      time: 01/2024 - Present
+      company: Promptly Health | Porto, Portugal
+      details: |
+        - Managed a secure data environment data harmonization, AI and analysis product team using Agile method
+        - Main responsibilities include backlog management, sprint management, task creation and delegation, roadmap and KPI definition
+        - Technical guidance on setting up a secure data environment on client premises, data harmonization, pipeline and modelling, AI pipeline building, data analysis, visualization and dashboarding (business intelligence)
+        - Involved in tender applications, client communication and priority definition
+        - Involved in generating evidence through analytical products, R&D tasks and publications and R&D applications
+
+
+    - role: Data Scientist and Engineer
+      time: 06/2022 – Present
+      company: Promptly Health | Porto, Portugal
+      details: |
+        - Responsible for design and implementation of data pipelines and all ETL steps (extract, transform, load)
+        - Involved in design and deployment of a full Secure Data Environment on client premises, from data export, harmonization, analysis and visualization.
+        - EHDEN project lead including implementation, team management and client communication
+        - Technical lead for any OMOP-CDM data model related tasks
+        - R&D projects including detection of biometric signals from face video using computer vision, detection of atrial fibrillation from fingertip video captured by smartphone and automatic medical vocabulary mapping using transformer-based technologies.
+
+
+    - role: Associate Laboratory MSc Thesis Research Student
+      time: 09/2021 – 06/2022
+      company: INESC Technology and Science | Porto, Portugal
+      details: |
+        - The objective of the study is to develop AI based models to predict the outcomes of Traumatic Brain Injury during the patient stay in ICU to aid clinical decision making and ultimately improve patient care
+        - Implementation of explainable methods to allow the clinicians to understand and trust the models decision
+        - This work combines multi-modality information of TBI patients at the bedside in ICU and predict patient outcomes in advance using classical ML models like KNN, Random Forest but when dealing with temporal signals, using LSTM and Transformers
+
+
+    - role: Associate Laboratory MSc Research Student
+      time: 02/2021 - 07/2021
+      company: University of Twente / Radboud | Enschede, Netherlands
+      details: |
+        - Internship with the Biomedical Signals and Systems group at the UT, along with the PROMPT project whose final goal is detecting and predicting freezing of gait in Parkinson patients
+        - My research was based on multimodal acquisition of EEG/fNIRS in healthy controls during motor and cognitive tasks. My personal goal was neuronal reconstruction of finger movement activity
+
