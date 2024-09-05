@@ -42,3 +42,13 @@ $theme-dark: #222222;
         "mixins",
         "base"
 ;
+
+.button-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Adjust the gap between buttons if needed */
+    }
+    
+    .button-wrapper .btn {
+        margin: 0;
+    }
