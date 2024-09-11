@@ -402,3 +402,74 @@ body {
         margin-bottom: 20px;
     }
 }
+
+
+// .service-box {
+//     max-width: 400px;
+//     margin: 50px auto 0;
+//     @media (min-width: 992px) {
+//         margin: 20px auto 0;
+//     }
+//     text-align: center; /* Ensure the content inside is centered */
+// }
+
+.service-box-2 {
+    max-width: 200px; /* Adjust as needed */
+    margin: 20px auto; /* Center the box */
+    text-align: center;
+}
+
+.icon-progress-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.skill-icon {
+    width: auto; /* Same height for all images */
+    height: 60px;
+    margin-right: 10px;
+}
+
+.vertical-bar {
+    width: 6px; /* Width of the vertical bar */
+    height: 60px; /* Adjust height based on the icon height */
+    background-color: #e0e0e0;
+    border-radius: 3px;
+}
+
+.vertical-bar.experienced {
+    background-color: #1abc9c; /* Green */
+    height: 80%;
+}
+
+.vertical-bar.average {
+    background-color: #f1c40f; /* Yellow */
+    height: 60%;
+}
+
+.vertical-bar.basic {
+    background-color: #e74c3c; /* Red */
+    height: 40%;
+}
+
+.section-subheading {
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    // color: #ffffff;
+    // text-transform: uppercase;
+    text-align: center; /* Center the subheading */
+}
+
+// .col-lg-3, .col-md-4 {
+//     display: flex;
+//     justify-content: center; /* Center items in the column */
+// }
+
+.center-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center children horizontally */
+}
