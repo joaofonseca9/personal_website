@@ -110,7 +110,7 @@ aside {
         }
     }
     @media (min-width: 768px) {
-        background-color: transparent;
+        background-color: $theme-primary;
         border-color: rgba(white, .3);
         .navbar-header .navbar-brand {
             color: rgba(white, .7);
@@ -156,10 +156,12 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header2.jpg');
+    background-image: url('../img/header2_black.png');
     text-align: center;
     color: white;
     .header-content {
+        // color: $theme-primary;
+        // opacity: 1;
         position: relative;
         text-align: center;
         padding: 100px 15px 100px;
@@ -183,6 +185,7 @@ header {
         }
     }
     @media (min-width: 768px) {
+        background-color: black;
         min-height: 100%;
         .header-content {
             position: absolute;
@@ -228,9 +231,18 @@ header {
     display: block;
     max-width: 650px;
     margin: 0 auto;
+    width: 100%;
+    height: 250px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures images cover the box while maintaining aspect ratio */
+        transition: transform 0.5s ease; /* Smooth zoom-in effect */
+    }
+    // height: 400px; /* Set a fixed height to keep all boxes the same size */
     .portfolio-box-caption {
         color: white;
-        opacity: 0;
+        opacity: .9;
         display: block;
         background: rgba( $theme-primary, .9 );
         position: absolute;
@@ -263,6 +275,7 @@ header {
     &:hover {
         .portfolio-box-caption {
             opacity: 1;
+            background: rgba( $theme-primary, 1);
         }
     }
     @media (min-width: 768px) {
@@ -473,3 +486,80 @@ body {
     flex-wrap: wrap;
     justify-content: center; /* Center children horizontally */
 }
+
+@media print {
+    *,
+    *:before,
+    *:after {
+      color: #000 !important;
+      text-shadow: none !important;
+      background: transparent !important;
+      -webkit-box-shadow: none !important;
+              box-shadow: none !important;
+    }
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+      content: "";
+    }
+    pre,
+    blockquote {
+      border: 1px solid #999;
+  
+      page-break-inside: avoid;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+    img {
+      max-width: 100% !important;
+    }
+    p,
+    h2,
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
+    select {
+      background: #fff !important;
+    }
+    .navbar {
+      display: none;
+    }
+    .btn > .caret,
+    .dropup > .btn > .caret {
+      border-top-color: #000 !important;
+    }
+    .label {
+      border: 1px solid #000;
+    }
+    .table {
+      border-collapse: collapse !important;
+    }
+    .table td,
+    .table th {
+      background-color: #fff !important;
+    }
+    .table-bordered th,
+    .table-bordered td {
+      border: 1px solid #ddd !important;
+    }
+  }
+
