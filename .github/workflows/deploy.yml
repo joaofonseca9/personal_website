@@ -32,19 +32,18 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install TeX Live
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra latexmk
-
       - name: Install Python dependencies
         run: |
           pip install pyyaml
 
-      - name: Generate CV PDF
+      - name: Generate CV LaTeX
         run: |
           python generate_cv_pdf.py
-          mv cv_harvard.pdf _site/ 2>/dev/null || mkdir -p _site && mv cv_harvard.pdf _site/
+
+      - name: Compile LaTeX to PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv_harvard.tex
 
       - name: Setup Pages
         id: pages
@@ -58,7 +57,7 @@ jobs:
 
       - name: Copy PDF to site
         run: |
-          cp cv_harvard.pdf _site/ 2>/dev/null || true
+          cp cv_harvard.pdf _site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
