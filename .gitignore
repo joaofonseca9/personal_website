@@ -1,2 +1,7 @@
 _site/
 .sass-cache/
+.venv/
+cv_harvard.tex
+cv_harvard.aux
+cv_harvard.log
+cv_harvard.out
