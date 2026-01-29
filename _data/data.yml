@@ -1,19 +1,24 @@
+profile:
+  photo: img/profile.jpg
+  linkedin: https://www.linkedin.com/in/joão-fonseca-69b438189/
+  github: https://github.com/joaofonseca9
+
 experiences:
   title: Experience
   info:
-    - role: Product Owner
+    - role: Technical Product Owner / Data Engineering Tech Lead
       time: 01/2024 - Present
       company: Promptly Health | Porto, Portugal
       details: |
         - Managed a secure data environment data harmonization, AI and analysis product team using Agile method
         - Main responsibilities include backlog management, sprint management, task creation and delegation, roadmap and KPI definition
-        - Technical guidance on setting up a secure data environment on client premises, data harmonization, pipeline and modelling, AI pipeline building, data analysis, visualization and dashboarding (business intelligence)
+        - Technical lead on setting up a secure data environment on client premises, data harmonization, pipeline and modelling, AI pipeline building, data analysis, visualization and dashboarding (business intelligence)
         - Involved in tender applications, client communication and priority definition
         - Involved in generating evidence through analytical products, R&D tasks and publications and R&D applications
 
 
     - role: Data Scientist and Engineer
-      time: 06/2022 – Present
+      time: 06/2022 – 01/2024
       company: Promptly Health | Porto, Portugal
       details: |
         - Responsible for design and implementation of data pipelines and all ETL steps (extract, transform, load)
@@ -37,5 +42,84 @@ experiences:
       company: University of Twente / Radboud | Enschede, Netherlands
       details: |
         - Internship with the Biomedical Signals and Systems group at the UT, along with the PROMPT project whose final goal is detecting and predicting freezing of gait in Parkinson patients
-        - My research was based on multimodal acquisition of EEG/fNIRS in healthy controls during motor and cognitive tasks. My personal goal was neuronal reconstruction of finger movement activity
+        - My research was based on multimodal acquisition of EEG/fNIRS in healthy controls during motor and cognitive tasks.
+        - My personal goal was neuronal reconstruction of finger movement activity by processing and merger of the signals described above into a projection of the brain
 
+education:
+  title: Education
+  info:
+    - degree: MSc in Bioengineering
+      university: Faculdade de Engenharia da Universidade do Porto
+      time: Graduated 06/2022
+      gpa: "18.5 out of 20"
+
+skills:
+  software:
+    - category: ETL Tools
+      items:
+        - dbt
+        - SQL
+        - Python
+        - Airflow
+        - Dagster
+    - category: Version Control and Project Management
+      items:
+        - Jira
+        - GitLab
+        - GitHub
+    - category: Machine Learning
+      items:
+        - Pytorch
+        - Keras
+        - Tensorflow
+    - category: Business Intelligence
+      items:
+        - Superset
+        - Gooddata
+  technical:
+    - Data Science
+    - Cloud Computing
+    - Data Analysis
+    - IT Project Management
+    - Agile Methodologies
+    - Virtualization
+    - AWS Services
+    - Google Services
+  soft:
+    - Communication
+    - Teamwork
+    - Problem-solving
+    - Adaptability
+    - Leadership
+    - Time Management
+
+publications:
+  - title: "Learning Models for Traumatic Brain Injury Mortality Prediction on Pediatric Electronic Health Records"
+    journal: Frontiers in Neurology
+    year: 2022
+    role: First Author
+    access: Closed Access
+    url: https://pubmed.ncbi.nlm.nih.gov/35756926/
+  - title: "Mortality prediction using medical time series on TBI patients"
+    journal: Computer Methods and Programs in Biomedicine
+    year: 2023
+    role: First Author
+    access: Open Access
+    url: https://www.sciencedirect.com/science/article/abs/pii/S0169260723004728
+  - title: "Towards Machine Learning-Aided Lung Cancer Clinical Routines: Approaches and Open Challenges"
+    journal: Journal of Personalized Medicine
+    year: 2022
+    role: Co Author
+    access: Open Access
+    url: https://www.mdpi.com/2075-4426/12/3/480
+  - title: "AI-based suggestions and automated vocabulary mapping platform into the ETL pipeline"
+    journal: Poster presented at OHDSI Europe
+    year: 2024
+    role: Co Author
+    access: Open Access
+    url: https://www.ohdsi-europe.org/images/symposium-2024/Posters/Poster%20OHDIS%20-%20Madalena%20Placido.pdf
+
+awards:
+  - title: Outstanding MSc Thesis Award by IEEE
+    description: "AI-Based Models to Predict The Traumatic Brain Injury Outcome"
+    year: 2022
