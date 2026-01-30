@@ -171,11 +171,9 @@ def generate_latex(data, config):
 
 % About Me
 \cvsection{About Me}
-Bioengineer by training, turned data engineer/scientist with a twist on health data product ownership, development and nurturing incredible teams! Working as Product Owner and data engineer/scientist.
+Technical Product Owner and Data Engineer with a background in Bioengineering, specializing in healthcare data products. I believe healthcare presents enormous opportunities to leverage data for better patient outcomes and more efficient clinical workflows.
 
-In a polarised world, one of the guaranteed common grounds is health. Despite this, it is also a sector that is still lacking in innovation, with healthcare services constantly failing throughout the world being that first care services or even services with secondary use of data.
-
-My goal is to make a positive impact in the world of health data by using it to provide real world value to the patients and healthcare professionals.
+My focus is on extracting value from Real World Data (RWD) by building end-to-end data pipelines — from source systems through harmonization to actionable analytics. I'm passionate about bridging the gap between patients, healthcare professionals, and technology.
 
 % Experience
 \cvsection{Experience}
