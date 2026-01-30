@@ -6,11 +6,11 @@ This script reads the CV data from the Jekyll data file and generates
 a professional PDF in the Harvard CV format with a blue header bar.
 """
 
-import yaml
-import subprocess
 import os
-import re
 import shutil
+import subprocess
+
+import yaml
 
 def load_cv_data(yaml_path="_data/data.yml"):
     """Load CV data from YAML file."""
@@ -80,8 +80,7 @@ def generate_latex(data, config):
     latex = r"""\documentclass[a4paper,10pt]{article}
 
 % Packages
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
 \usepackage{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -295,21 +294,30 @@ def generate_pdf(output_dir="."):
 
     print(f"Generated LaTeX file: {tex_file}")
 
-    # Check if pdflatex is available
-    if shutil.which("pdflatex") is None:
-        print("Warning: pdflatex not found. LaTeX file generated but PDF not created.")
+    # Check if lualatex is available (preferred for fontawesome5)
+    latex_cmd = None
+    if shutil.which("lualatex"):
+        latex_cmd = "lualatex"
+    elif shutil.which("pdflatex"):
+        latex_cmd = "pdflatex"
+
+    if latex_cmd is None:
+        print("Warning: No LaTeX compiler found. LaTeX file generated but PDF not created.")
         print("Install TeX Live or MiKTeX to generate PDF locally.")
         return tex_file
 
-    # Run pdflatex twice for proper formatting
+    print(f"Using {latex_cmd} to compile PDF...")
+
+    # Run latex twice for proper formatting
     for i in range(2):
         result = subprocess.run(
-            ["pdflatex", "-interaction=nonstopmode", "-output-directory", output_dir, tex_file],
+            [latex_cmd, "-interaction=nonstopmode", "-output-directory", output_dir, tex_file],
             capture_output=True,
-            text=True
+            text=True,
+            check=False
         )
         if result.returncode != 0:
-            print(f"pdflatex error (pass {i+1}):")
+            print(f"{latex_cmd} error (pass {i+1}):")
             print(result.stdout)
             print(result.stderr)
 
