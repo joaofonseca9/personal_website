@@ -7,42 +7,38 @@ experiences:
   title: Experience
   info:
     - role: Technical Product Owner / Data Engineering Tech Lead
-      time: 01/2024 - Present
+      time: 01/2024 – Present
       company: Promptly Health | Porto, Portugal
       details: |
-        - Led a data team (up to 9 data engineers of different seniorities) responsible for building secure data environments, data harmonization pipelines, and AI-driven analytics using Agile methodologies
-        - Owned product backlog, sprint planning, roadmap definition, and KPI tracking across multiple client engagements
-        - Architected and deployed secure on-premise data environments including data ingestion, harmonization to OMOP-CDM, ML pipelines, and BI dashboards.
-        - Managed client relationships, led tender applications, and defined project priorities for dozens of data partners around europe (Portugal, Spain, France, UK,)
-
+        - Grew and led a cross-functional data team of up to 9 engineers, establishing sprint cadences, backlog prioritization, and KPI dashboards using Jira and Agile/Scrum
+        - Architected and deployed 10+ secure on-premise data environments using Docker, Kubernetes, and ArgoCD, hosting ingestion (DLT), harmonization (dbt + Dagster), and BI layers (Apache Superset)
+        - Owned the product roadmap and stakeholder communication for OMOP-CDM harmonization projects across 20+ data partners in Portugal, Spain, France, and the UK
+        - Defined and led tender applications, securing new client engagements and expanding the team's project portfolio
+        - Established CI/CD pipelines (GitLab CI) and infrastructure-as-code practices for repeatable deployments across client environments
 
     - role: Data Scientist and Engineer
       time: 06/2022 – 01/2024
       company: Promptly Health | Porto, Portugal
       details: |
-        - Designed and implemented end-to-end data pipelines covering extraction, transformation, and loading (ETL) of healthcare data
-        - Deployed full Secure Data Environments on client premises, enabling compliant data export, harmonization, analysis, and visualization
-        - Led the EHDEN project, managing implementation, coordinating the team, and handling client communications
-        - Served as technical lead for all OMOP-CDM data model implementations
-        - Developed R&D prototypes including biometric signal detection from facial video, atrial fibrillation detection from smartphone video, and transformer-based medical vocabulary mapping
+        - Designed and built cloud-hosted ETL pipelines in Python and SQL using Apache Airflow, harmonizing healthcare data from 5 data partners into the OMOP-CDM standard
+        - Led the EHDEN project end-to-end with a 2-person team: managed client communications, delivered OMOP-CDM mappings for multiple hospital data sources, and ensured compliance with project milestones
+        - Served as technical lead for all OMOP-CDM data model implementations, defining mapping standards and review processes adopted across the team
+        - Developed R&D prototypes: biometric signal detection from facial video (Python, OpenCV), atrial fibrillation detection from smartphone video, and transformer-based medical vocabulary mapping (PyTorch)
 
-
-    - role: MSc Thesis Research Student
+    - role: MSc Thesis Research – Curricular Internship
       time: 09/2021 – 06/2022
       company: INESC Technology and Science | Porto, Portugal
       details: |
-        - Developed AI models to predict Traumatic Brain Injury outcomes in ICU patients, supporting clinical decision-making
-        - Implemented explainable AI methods (SHAP, attention visualization) enabling clinicians to interpret and trust model predictions
-        - Built multi-modal ML pipeline combining EHR data and physiological time-series, using Random Forest, LSTM, and Transformer architectures
+        - Developed AI models to predict Traumatic Brain Injury outcomes in ICU patients using Python, scikit-learn, and PyTorch, achieving state-of-the-art AUC on the eICU dataset
+        - Implemented explainable AI methods (SHAP, attention visualization) enabling clinicians to interpret and trust model predictions, published as first-author in Frontiers in Neurology
+        - Built a multi-modal ML pipeline combining EHR tabular data and physiological time-series using Random Forest, LSTM, and Transformer architectures
 
-
-    - role: MSc Research Intern
-      time: 02/2021 - 07/2021
+    - role: MSc Research – Curricular Internship
+      time: 02/2021 – 07/2021
       company: University of Twente / Radboud | Enschede, Netherlands
       details: |
-        - Contributed to the PROMPT project focused on detecting and predicting freezing of gait in Parkinson's patients
-        - Conducted multimodal EEG/fNIRS data acquisition during motor and cognitive tasks in healthy controls
-        - Developed signal processing pipeline for neuronal reconstruction of finger movement activity
+        - Contributed to the PROMPT project on freezing-of-gait detection in Parkinson's patients, conducting multimodal EEG/fNIRS data acquisition during motor and cognitive tasks
+        - Developed a MATLAB signal processing pipeline for neuronal reconstruction of finger movement activity from brain signals
 
 education:
   title: Education
@@ -54,34 +50,46 @@ education:
 
 skills:
   software:
-    - category: ETL & Data Engineering
+    - category: Data Engineering & ETL
       items:
         - dbt
         - SQL
         - Python
-        - Airflow
         - Dagster
+        - Apache Airflow
+        - DLT
+    - category: Databases & Analytics
+      items:
+        - Databricks
+        - StarRocks
+        - PostgreSQL
+        - Apache Superset
+    - category: Infrastructure & DevOps
+      items:
+        - Docker
+        - Kubernetes
+        - ArgoCD
+        - GitLab CI
+        - Azure
     - category: Version Control & Project Management
       items:
-        - Jira
+        - Git
         - GitLab
         - GitHub
+        - Jira
     - category: Machine Learning
       items:
         - PyTorch
+        - scikit-learn
         - Keras
         - TensorFlow
-    - category: Business Intelligence
-      items:
-        - Apache Superset
-        - GoodData
   technical:
-    - Data Science & Machine Learning
-    - Data Analysis & Visualization
-    - Product Management
+    - Data Engineering & Pipeline Architecture
+    - OMOP-CDM Healthcare Data Harmonization
+    - Product Ownership & Roadmap Definition
     - Agile & Scrum
-    - AWS (S3, EC2, RDS)
-    - Docker & Kubernetes
+    - Cloud Infrastructure (AWS, Azure)
+    - Secure Data Environments
 
 publications:
   - title: "Learning Models for Traumatic Brain Injury Mortality Prediction on Pediatric Electronic Health Records"

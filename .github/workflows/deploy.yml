@@ -44,7 +44,6 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: cv_harvard.tex
-          latexmk_use_lualatex: true
 
       - name: Setup Pages
         id: pages

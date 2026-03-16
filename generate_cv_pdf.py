@@ -80,24 +80,20 @@ def generate_latex(data, config):
     latex = r"""\documentclass[a4paper,10pt]{article}
 
 % Packages
-\usepackage{fontspec}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xcolor}
-\usepackage{fontawesome5}
-\usepackage{tikz}
 \usepackage{parskip}
-\usepackage{tabularx}
-\usepackage{multicol}
-\usepackage{graphicx}
 
 % Page geometry
-\geometry{top=0in, bottom=0.7in, left=0.7in, right=0.7in}
+\geometry{top=0.6in, bottom=0.6in, left=0.7in, right=0.7in}
 
 % Colors
-\definecolor{headerblue}{RGB}{0, 51, 102}
+\definecolor{darkblue}{RGB}{0, 51, 102}
 \definecolor{linkblue}{RGB}{0, 102, 204}
 
 % Hyperlinks
@@ -109,7 +105,7 @@ def generate_latex(data, config):
 
 % Section formatting
 \titleformat{\section}
-  {\large\bfseries\color{headerblue}}
+  {\large\bfseries\color{darkblue}}
   {}
   {0em}
   {}
@@ -122,52 +118,15 @@ def generate_latex(data, config):
 
 \begin{document}
 
-% Header with blue background
-\begin{tikzpicture}[remember picture,overlay]
-\fill[headerblue] (current page.north west) rectangle ([yshift=-3.2cm]current page.north east);
-\end{tikzpicture}
+% Header
+\begin{center}
+{\Huge\bfseries """ + escape_latex(name) + r"""} \\[0.3cm]
+{\large Product Owner / Data Engineer} \\[0.3cm]
+""" + escape_latex(email) + r""" $\cdot$ """ + escape_latex(phone) + r""" $\cdot$ """ + escape_latex(location) + r""" \\
+\href{https://""" + website + r"""}{""" + escape_latex(website) + r"""} $\cdot$ \href{""" + linkedin_url + r"""}{LinkedIn} $\cdot$ \href{""" + github_url + r"""}{GitHub}
+\end{center}
 
-% Header content with photo
-"""
-
-    if has_photo:
-        latex += r"""
-\begin{minipage}[t]{0.15\textwidth}
 \vspace{0.3cm}
-\begin{tikzpicture}
-\clip (0,0) circle (1.1cm);
-\node at (0,0) {\includegraphics[width=2.2cm]{""" + photo_path + r"""}};
-\end{tikzpicture}
-\end{minipage}%
-\begin{minipage}[t]{0.45\textwidth}
-\vspace{0.4cm}
-{\Huge\bfseries\color{white} """ + escape_latex(name) + r"""} \\[0.3cm]
-{\large\color{white} Product Owner / Data Engineer}
-\end{minipage}%
-"""
-    else:
-        latex += r"""
-\begin{minipage}[t]{0.55\textwidth}
-\vspace{0.4cm}
-{\Huge\bfseries\color{white} """ + escape_latex(name) + r"""} \\[0.3cm]
-{\large\color{white} Product Owner / Data Engineer}
-\end{minipage}%
-"""
-
-    latex += r"""
-\begin{minipage}[t]{0.40\textwidth}
-\vspace{0.4cm}
-\raggedleft
-\color{white}
-\faEnvelope\ \href{mailto:""" + email + r"""}{""" + escape_latex(email) + r"""} \\
-\faPhone\ """ + escape_latex(phone) + r""" \\
-\faMapMarker*\ """ + escape_latex(location) + r""" \\
-\faGlobe\ \href{https://""" + website + r"""}{""" + escape_latex(website) + r"""} \\[0.2cm]
-\faLinkedin\ \href{""" + linkedin_url + r"""}{LinkedIn} \quad
-\faGithub\ \href{""" + github_url + r"""}{GitHub}
-\end{minipage}
-
-\vspace{1.4cm}
 
 % About Me
 \cvsection{About Me}
@@ -292,12 +251,12 @@ def generate_pdf(output_dir="."):
 
     print(f"Generated LaTeX file: {tex_file}")
 
-    # Check if lualatex is available (preferred for fontawesome5)
+    # Check if pdflatex is available
     latex_cmd = None
-    if shutil.which("lualatex"):
-        latex_cmd = "lualatex"
-    elif shutil.which("pdflatex"):
+    if shutil.which("pdflatex"):
         latex_cmd = "pdflatex"
+    elif shutil.which("lualatex"):
+        latex_cmd = "lualatex"
 
     if latex_cmd is None:
         print("Warning: No LaTeX compiler found. LaTeX file generated but PDF not created.")
