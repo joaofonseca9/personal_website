@@ -32,9 +32,9 @@
                 <div class="service-box">
                     <div class="icon-progress-wrapper">
                         {% if icon_file != "" %}
-                        <img src="img/skills/{{ icon_file }}" alt="{{ item.name }}" class="skill-icon">
+                        <img src="img/skills/{{ icon_file }}" alt="{{ item.name }}" title="{{ item.name }}" class="skill-icon">
                         {% else %}
-                        <span class="skill-text-label">{{ item.name }}</span>
+                        <span class="skill-text-label" title="{{ item.name }}">{{ item.name }}</span>
                         {% endif %}
                         <div class="vertical-bar {{ item.level }}"></div>
                     </div>
