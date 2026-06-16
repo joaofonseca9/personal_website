@@ -1,6 +1,13 @@
+{% comment %}
+  Icon mapping: maps skill names to icon filenames in img/skills/.
+  Skills without an icon file get a text label instead.
+{% endcomment %}
+
+{% assign icon_map_str = "dbt:dbt.svg,SQL:sql.svg,Python:python.svg,Dagster:dagster.svg,Apache Airflow:airflow.svg,Apache Superset:superset.png,Docker:docker.svg,Kubernetes:k8s.svg,GitLab CI:gitlab.svg,Git:github.svg,Jira:jira.svg" %}
+{% assign icon_map = icon_map_str | split: "," %}
+
 <section id="software_skills" class="bg-primary">
     <div class="container">
-        <!-- Software Skills -->
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-primary">Software Skills</h2>
@@ -8,149 +15,36 @@
             </div>
         </div>
 
-        <!-- ETL Tools Section -->
+        {% for category in site.data.data.skills.software %}
         <div class="center-row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-subheading text-primary">ETL Tools</h2>
+                <h2 class="section-subheading text-primary">{{ category.category }}</h2>
             </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box-2">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/airflow.svg" alt="Airflow" class="skill-icon">
-                        <div class="vertical-bar experienced"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/dagster.svg" alt="Dagster" class="skill-icon">
-                        <div class="vertical-bar average"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/mage.png" alt="Mage" class="skill-icon">
-                        <div class="vertical-bar basic"></div>
-                    </div>
-                </div>
-            </div> -->
+            {% for item in category.items %}
+            {% assign icon_file = "" %}
+            {% for mapping in icon_map %}
+                {% assign pair = mapping | split: ":" %}
+                {% if pair[0] == item.name %}
+                    {% assign icon_file = pair[1] %}
+                {% endif %}
+            {% endfor %}
             <div class="col-lg-3 col-md-4 text-center">
                 <div class="service-box">
                     <div class="icon-progress-wrapper">
-                        <img src="img/skills/dbt.svg" alt="dbt" class="skill-icon">
-                        <div class="vertical-bar experienced"></div>
+                        {% if icon_file != "" %}
+                        <img src="img/skills/{{ icon_file }}" alt="{{ item.name }}" class="skill-icon">
+                        {% else %}
+                        <span class="skill-text-label">{{ item.name }}</span>
+                        {% endif %}
+                        <div class="vertical-bar {{ item.level }}"></div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-
-        <!-- Programming Languages Section -->
-        <div class="center-row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-subheading text-primary">Programming Languages</h2>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/sql.svg" alt="SQL" class="skill-icon">
-                        <div class="vertical-bar experienced"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/python.svg" alt="Python" class="skill-icon">
-                        <div class="vertical-bar experienced"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Version Control and Project Management Section -->
-        <div class="center-row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-subheading text-primary">Version Control and Project Management</h2>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/jira.svg" alt="Jira" class="skill-icon">
-                        <div class="vertical-bar average"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/gitlab.svg" alt="GitLab" class="skill-icon">
-                        <div class="vertical-bar experienced"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/github.svg" alt="GitHub" class="skill-icon">
-                        <div class="vertical-bar experienced"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Business Intelligence Section -->
-        <div class="center-row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-subheading text-primary">Business Intelligence</h2>
-            </div>
-            <div class="col-lg-3 col-md-4 d-flex justify-content-center align-items-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/superset.png" alt="Superset" class="skill-icon">
-                        <div class="vertical-bar experienced"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Infrastructure Section -->
-        <div class="center-row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-subheading text-primary">Infrastructure (Basic)</h2>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/docker.svg" alt="Docker" class="skill-icon">
-                        <div class="vertical-bar experienced"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/k8s.svg" alt="Kubernetes" class="skill-icon">
-                        <div class="vertical-bar average"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <div class="icon-progress-wrapper">
-                        <img src="img/skills/argocd.svg" alt="ArgoCD" class="skill-icon">
-                        <div class="vertical-bar basic"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </section>
-
-
-
 
 <!-- Technical Skills Section -->
 <section id="tech_skills" class="bg-dark">
@@ -161,109 +55,14 @@
                 <hr class="light">
             </div>
         </div>
-        <!-- Technical Skills -->
         <div class="row">
+            {% for skill in site.data.data.skills.technical %}
             <div class="col-lg-3 col-md-4 text-center">
                 <div class="service-box">
-                    <i class="fa fa-database fa-3x text-light"></i>
-                    <h4 class="text-light">Data Science</h4>
+                    <h4 class="text-light">{{ skill }}</h4>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <i class="fa fa-cloud fa-3x text-light"></i>
-                    <h4 class="text-light">Cloud Computing</h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <i class="fa-solid fa-magnifying-glass fa-3x text-light"></i>
-                    <h4 class="text-light">Data Analysis</h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <i class="fa-solid fa-diagram-project fa-3x text-light"></i>
-                    <h4 class="text-light">Project Management</h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <!-- <img src="img/skills/agile.svg" alt="agile" width="120"> -->
-                    <i class="fa-solid fa-arrows-split-up-and-left fa-3x text-light"></i>
-                    <h4 class="text-light">Agile Methodologies</h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <i class="fa fa-server fa-3x text-light"></i>
-                    <h4 class="text-light">Virtualization</h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <!-- <img src="img/skills/aws.svg" alt="aws" width="120"> -->
-                    <i class="fa-brands fa-aws fa-3x text-light"></i>
-                    <h4 class="text-light">AWS Services</h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 text-center">
-                <div class="service-box">
-                    <i class="fa-brands fa-google fa-3x text-light"></i>
-                    <h4 class="text-light">Google Services</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Soft Skills Section -->
-<section id="soft_skills" class="bg-primary">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-primary">Soft Skills</h2>
-                <hr class="primary">
-            </div>
-        </div>
-        <!-- Soft Skills -->
-        <div class="row">
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-comments fa-4x text-primary"></i>
-                    <h4 class="text-light">Communication</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-users fa-4x text-primary" data-wow-delay=".1s"></i>
-                    <h4 class="text-light">Teamwork</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-lightbulb fa-4x text-primary" data-wow-delay=".2s"></i>
-                    <h4 class="text-light">Problem-solving</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-hourglass-half fa-4x text-primary" data-wow-delay=".2s"></i>
-                    <h4 class="text-light">Time Tracking and Prioritization</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-adjust fa-4x text-primary" data-wow-delay=".3s"></i>
-                    <h4 class="text-light">Adaptability</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-clock fa-4x text-primary" data-wow-delay=".4s"></i>
-                    <h4 class="text-light">Time Management</h4>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

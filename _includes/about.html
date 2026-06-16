@@ -4,12 +4,9 @@
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">About Me</h2>
                 <hr class="dark">
-                <p class="text-dark">
-                    Technical Product Owner and Data Engineer with a background in Bioengineering, specializing in healthcare data products. <br>
-                    I believe healthcare presents enormous opportunities to leverage data for better patient outcomes and more efficient clinical workflows. <br>
-                    My focus is on extracting value from Real World Data (RWD) by building end-to-end data pipelines — from source systems through harmonization to actionable analytics. <br>
-                    I'm passionate about bridging the gap between patients, healthcare professionals, and technology. <br>
-                </p>
+                <div class="text-dark">
+                    {{ site.data.data.about | markdownify }}
+                </div>
             </div>
         </div>
     </div>

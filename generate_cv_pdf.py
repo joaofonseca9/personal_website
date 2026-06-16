@@ -121,7 +121,7 @@ def generate_latex(data, config):
 % Header
 \begin{center}
 {\Huge\bfseries """ + escape_latex(name) + r"""} \\[0.3cm]
-{\large Product Owner / Data Engineer} \\[0.3cm]
+{\large """ + escape_latex(data.get('header', {}).get('subtitle', 'Product Owner / Data Engineer')) + r"""} \\[0.3cm]
 """ + escape_latex(email) + r""" $\cdot$ """ + escape_latex(phone) + r""" $\cdot$ """ + escape_latex(location) + r""" \\
 \href{https://""" + website + r"""}{""" + escape_latex(website) + r"""} $\cdot$ \href{""" + linkedin_url + r"""}{LinkedIn} $\cdot$ \href{""" + github_url + r"""}{GitHub}
 \end{center}
@@ -130,9 +130,7 @@ def generate_latex(data, config):
 
 % About Me
 \cvsection{About Me}
-Technical Product Owner and Data Engineer with a background in Bioengineering, specializing in healthcare data products. I believe healthcare presents enormous opportunities to leverage data for better patient outcomes and more efficient clinical workflows.
-
-My focus is on extracting value from Real World Data (RWD) by building end-to-end data pipelines — from source systems through harmonization to actionable analytics. I'm passionate about bridging the gap between patients, healthcare professionals, and technology.
+""" + escape_latex(data.get('about', '').strip()) + r"""
 
 % Experience
 \cvsection{Experience}
@@ -170,6 +168,22 @@ My focus is on extracting value from Real World Data (RWD) by building end-to-en
 GPA: {gpa}
 """
 
+    # Certifications
+    certifications = data.get('education', {}).get('certifications', [])
+    if certifications:
+        latex += r"""
+\cvsection{Certifications}
+"""
+        for cert in certifications:
+            name = escape_latex(cert.get('name', ''))
+            issuer = escape_latex(cert.get('issuer', ''))
+            time = escape_latex(str(cert.get('time', '')))
+            details = escape_latex(cert.get('details', ''))
+
+            latex += f"\\textbf{{{name}}} | {issuer} \\hfill {time} \\\\\n"
+            if details:
+                latex += f"{details}\n\n"
+
     # Skills
     latex += r"""
 \cvsection{Skills}
@@ -182,18 +196,17 @@ GPA: {gpa}
         skill_items = []
         for cat in software:
             items = cat.get('items', [])
-            skill_items.extend(items)
+            for item in items:
+                if isinstance(item, dict):
+                    skill_items.append(item.get('name', ''))
+                else:
+                    skill_items.append(str(item))
         latex += "\\textbf{Software:} " + escape_latex(" | ".join(skill_items)) + "\n\n"
 
     # Technical skills
     technical = skills.get('technical', [])
     if technical:
         latex += "\\textbf{Technical Areas:} " + escape_latex(" | ".join(technical)) + "\n\n"
-
-    # Soft skills
-    soft = skills.get('soft', [])
-    if soft:
-        latex += "\\textbf{Soft Skills:} " + escape_latex(" | ".join(soft)) + "\n"
 
     # Publications
     latex += r"""

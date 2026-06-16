@@ -17,31 +17,20 @@
                 <h2 class="section-heading">Publications and Awards</h2>
                 <hr class="light">
                 <ul class="list-unstyled text-faded">
+                    {% for pub in site.data.data.publications %}
                     <p>
-                        <strong><a href="https://pubmed.ncbi.nlm.nih.gov/35756926/" target="_blank">"Learning Models for Traumatic Brain Injury Mortality Prediction on Pediatric Electronic Health Records"</a></strong>
+                        <strong><a href="{{ pub.url }}" target="_blank">"{{ pub.title }}"</a></strong>
                         <br>
-                        Frontiers in Neurology (2022) - First Author, Published, Closed Access
+                        {{ pub.journal }} ({{ pub.year }}) - {{ pub.role }}, Published, {{ pub.access }}
                     </p>
+                    {% endfor %}
+                    {% for award in site.data.data.awards %}
                     <p>
-                        <strong><a href="https://www.sciencedirect.com/science/article/abs/pii/S0169260723004728?via%3Dihub" target="_blank">“Mortality prediction using medical time series on TBI patients”</a></strong>
+                        <strong>{{ award.title }}</strong>
                         <br>
-                        Computer Methods and Programs in Biomedicine (2023) - First Author, Published, Open Access
+                        "{{ award.description }}", {{ award.year }}
                     </p>
-                    <p>
-                        <strong><a href="https://www.mdpi.com/2075-4426/12/3/480" target="_blank">“Towards Machine Learning-Aided Lung Cancer Clinical Routines: Approaches and Open Challenges"</a></strong>
-                        <br>
-                        Journal of Personalized Medicine (2022) - Co Author, Published, Open Access
-                    </p>
-                    <p>
-                        <strong><a href="https://www.ohdsi-europe.org/images/symposium-2024/Posters/Poster%20OHDIS%20-%20Madalena%20Placido.pdf" target="_blank">"AI-based suggestions and automated vocabulary mapping platform into the ETL pipeline"</a></strong>
-                        <br>
-                        Poster presented at OHDSI Europe (2024) - Co Author, Published, Open Access
-                    </p>
-                    <p>
-                        <strong><a href="https://ieee-pt.org/2022/11/25/ieee-portugal-outstanding-msc-awards-2022/" target="_blank">"AI-Based Models to Predict The Traumatic Brain Injury Outcome"</a></strong>
-                        <br>
-                        IEEE Portugal Outstanding MSc Thesis Award 2022
-                    </p>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

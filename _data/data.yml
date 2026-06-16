@@ -1,3 +1,13 @@
+header:
+  subtitle: "CV & Tech Portfolio"
+  tagline: "Technical Product Owner and Data Engineering Lead specializing in healthcare data harmonization and pipeline architecture"
+
+about: |
+  Technical Product Owner and Data Engineer with a background in Bioengineering, specializing in healthcare data products.
+  I believe healthcare presents enormous opportunities to leverage data for better patient outcomes and more efficient clinical workflows.
+  My focus is on extracting value from Real World Data (RWD) by building end-to-end data pipelines — from source systems through harmonization to actionable analytics.
+  I'm passionate about bridging the gap between patients, healthcare professionals, and technology.
+
 profile:
   photo: img/profile.jpg
   linkedin: https://www.linkedin.com/in/joão-fonseca-69b438189/
@@ -10,11 +20,11 @@ experiences:
       time: 01/2024 – Present
       company: Promptly Health | Porto, Portugal
       details: |
-        - Grew and led a cross-functional data team of up to 9 engineers, establishing sprint cadences, backlog prioritization, and KPI dashboards using Jira and Agile/Scrum
-        - Architected and deployed 10+ secure on-premise data environments using Docker, Kubernetes, and ArgoCD, hosting ingestion (DLT), harmonization (dbt + Dagster), and BI layers (Apache Superset)
-        - Owned the product roadmap and stakeholder communication for OMOP-CDM harmonization projects across 20+ data partners in Portugal, Spain, France, and the UK
-        - Defined and led tender applications, securing new client engagements and expanding the team's project portfolio
-        - Established CI/CD pipelines (GitLab CI) and infrastructure-as-code practices for repeatable deployments across client environments
+        - Grew and led a cross-functional data team of up to 9 engineers as Tech Lead, Product Owner, and Engineering Manager, establishing sprint cadences, backlog prioritization, and KPI dashboards using Jira and Agile/Scrum
+        - Designed and managed OMOP-CDM harmonization data pipelines (dbt + Dagster) across 20+ data partners in Portugal, Spain, France, and the UK, adapting to diverse data lake environments per partner
+        - Led architectural decisions for data infrastructure across heterogeneous setups: cloud data partners with Databricks, Synapse, BigQuery, or AWS Athena; cloud partners without a data lake using StarRocks on object storage; and bare-metal environments with StarRocks on block storage
+        - Owned the product roadmap and stakeholder communication, defined and led tender applications, securing new client engagements and expanding the team's project portfolio
+        - Established CI/CD pipelines (GitLab CI) and data pipeline best practices for repeatable deployments across client environments
 
     - role: Data Scientist and Engineer
       time: 06/2022 – 01/2024
@@ -47,42 +57,70 @@ education:
       university: Faculdade de Engenharia da Universidade do Porto
       time: Graduated 06/2022
       gpa: "18.5 out of 20"
+  certifications:
+    - name: EHDEN Academy
+      issuer: European Health Data & Evidence Network (EHDEN)
+      time: 2022
+      details: "Completed Extract, Transform and Load (OMOP CDM), EHDEN Foundation, and Getting Started"
 
 skills:
   software:
     - category: Data Engineering & ETL
       items:
-        - dbt
-        - SQL
-        - Python
-        - Dagster
-        - Apache Airflow
-        - DLT
-    - category: Databases & Analytics
+        - name: dbt
+          level: experienced
+        - name: SQL
+          level: experienced
+        - name: Python
+          level: experienced
+        - name: Dagster
+          level: experienced
+        - name: DLT
+          level: experienced
+        - name: Apache Airflow
+          level: average
+    - category: Databases & Data Platforms
       items:
-        - Databricks
-        - StarRocks
-        - PostgreSQL
-        - Apache Superset
+        - name: Databricks
+          level: average
+        - name: Azure Synapse
+          level: average
+        - name: Google BigQuery
+          level: average
+        - name: AWS Athena
+          level: average
+        - name: StarRocks
+          level: average
+    - category: BI & Visualization
+      items:
+        - name: Apache Superset
+          level: average
     - category: Infrastructure & DevOps
       items:
-        - Docker
-        - Kubernetes
-        - ArgoCD
-        - GitLab CI
-        - Azure
+        - name: Docker
+          level: average
+        - name: Kubernetes
+          level: basic
+        - name: GitLab CI
+          level: basic
+        - name: Azure
+          level: basic
     - category: Version Control & Project Management
       items:
-        - Git
-        - GitLab
-        - GitHub
-        - Jira
+        - name: Git
+          level: experienced
+        - name: Jira
+          level: experienced
     - category: Machine Learning
       items:
-        - PyTorch
-        - scikit-learn
-        - Keras
-        - TensorFlow
+        - name: PyTorch
+          level: basic
+        - name: scikit-learn
+          level: basic
+        - name: Keras
+          level: basic
+        - name: TensorFlow
+          level: basic
   technical:
     - Data Engineering & Pipeline Architecture
     - OMOP-CDM Healthcare Data Harmonization

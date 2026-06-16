@@ -5,9 +5,20 @@
                 <h2 class="section-heading">Education</h2>
                 <hr class="dark">
                 <img src="img/education/feup.png" alt="feup" width="360" padding="100">
+                {% for edu in site.data.data.education.info %}
                 <p class="text-dark">
-                    MSc in Bioengineering <br><br> Graduated 06/2022 <br><br> GPA: 18.5 out of 20
+                    {{ edu.degree }} <br><br> {{ edu.time }} <br><br> GPA: {{ edu.gpa }}
                 </p>
+                {% endfor %}
+                {% if site.data.data.education.certifications %}
+                <h3 class="text-dark">Certifications</h3>
+                {% for cert in site.data.data.education.certifications %}
+                <p class="text-dark">
+                    <strong>{{ cert.name }}</strong> &mdash; {{ cert.issuer }} ({{ cert.time }})
+                    {% if cert.details %}<br>{{ cert.details }}{% endif %}
+                </p>
+                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
